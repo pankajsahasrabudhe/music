@@ -23,6 +23,8 @@ pitchChangemp4.sh <mp4 file> <pitch shift, e.g. if reduce by 1 semitone then -10
 ====
 Examples
 ====
+==Speed up video by 
+ffmpeg.exe -i Video.mp4 -filter_complex "[0:v]setpts=PTS/1.05[v];[0:a]atempo=1.05[a]" -map "[v]" -map "[a]" output.mp4
 
 ==Extract audio out of mp4 to mp3
 ffmpeg -i sample.mp4 -q:a 0 -map a sample.mp3
