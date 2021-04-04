@@ -1,5 +1,6 @@
 mp4File="$1"
 
+mkdir -pv Orig
 ffmpeg -i $mp4File tmp1.wav
 sox tmp1.wav tmp-final.wav gain -l 6
 ffmpeg -i $mp4File -i tmp-final.wav -c:v copy -map 0:v:0 -map 1:a:0 new.mp4
