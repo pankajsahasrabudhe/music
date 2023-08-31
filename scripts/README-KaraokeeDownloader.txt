@@ -12,6 +12,14 @@ Rename all wavs with spaces to underscores
 --
 for file in *.wav;do mv -v -- "$file" "${file// /_}";done
 
+Change speed of audio and video
+--
+example: slow down by 3%
+
+ffmpeg -i YeRaatBheegiBheegi-KARAOKEE-minus4.mp4  -filter_complex "[0:v]setpts=PTS/0.97[v];[0:a]atempo=0.97[a]" -map "[v]" -map "[a]"  YeRaatBheegiBheegi-KARAOKEE-minus4-95percSpeed.mp4
+
+
+
 
 Normalize wav files
  for file in *.wav; do sox "$file" "output/${file}" norm -2.0; done
